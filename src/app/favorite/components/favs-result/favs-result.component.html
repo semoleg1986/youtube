@@ -1,0 +1,5 @@
+<div *ngIf="favoriteCards$ | async as favoriteCards" class="favs-cards">
+    <app-favs-item *ngFor="let videoItem of favoriteCards"
+                   [videoItem]="videoItem">
+    </app-favs-item>
+</div>

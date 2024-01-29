@@ -1,0 +1,20 @@
+.not-page{
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    width: 360px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    transform: translate(-50%, -50%);
+    p{
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #828282;
+    }
+}
+

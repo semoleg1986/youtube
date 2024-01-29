@@ -1,0 +1,23 @@
+<div class="login">
+    <mat-card>
+        <h2>Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="input-group">
+                <label for="login">login</label>
+                <input type="text" id="login" name="username" formControlName="username" required>
+                <p *ngIf="getUsernameError('required') && loginForm.get('username')?.dirty">Please enter a login email!</p>
+                <p *ngIf="getUsernameError('email') && loginForm.get('username')?.dirty">The login email is invalid!</p>
+          
+            </div>
+            <div class="input-group">
+                <label for="password">password</label>
+                <input type="password" id="password" name="password" formControlName="password">
+                <p *ngIf="getPasswordError('required') && loginForm.get('password')?.dirty">Please enter a password!</p>
+                <p *ngIf="getPasswordError('passwordStrength') && loginForm.get('password')?.dirty"
+        >Your password isn't strong enough, you need enter at least 8 characters (letters and numbers), uppercase and
+        lowercase letters, special character!</p>
+            </div>
+            <app-custom-button size="login" class="login-button" type="submit" [disabled]="loginForm.invalid">Login</app-custom-button>
+        </form>
+    </mat-card>
+</div>

@@ -1,0 +1,27 @@
+<div class="detail">
+    <app-custom-button size="tiny"  routerLink="../.." >
+        <mat-icon class="detail__icon">arrow_back_ios_new</mat-icon>
+    </app-custom-button>
+
+    <div class="detail__card" [appShadowColor]="videoItem?.snippet?.publishedAt || ''">
+        <div class="detail__card-img">
+            <img 
+            [src]="videoItem?.snippet?.thumbnails?.standard?.url" 
+            [alt]="videoItem?.snippet?.title"
+        />
+        </div>
+        <div class="detail__card-info" [appBorderColor]="videoItem?.snippet?.publishedAt || ''">
+            <div class="detail__card-header">
+                <h1>{{ videoItem?.snippet?.title }}</h1>
+                <p>{{ videoItem?.snippet?.publishedAt | date : "fullDate" }}</p>
+            </div>
+            <div class="detail__card-description">
+                <h4>Description:</h4>
+                <p>{{ videoItem?.snippet?.description }}</p>
+            </div>
+            <div class="detail__card-statistic">
+                <app-statics [item]="videoItem" *ngIf="videoItem"></app-statics>
+            </div>
+        </div>
+    </div>
+</div>

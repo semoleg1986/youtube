@@ -1,0 +1,25 @@
+<div class="cards">
+     <app-search-item *ngFor="let videoItem of filteredVideoList 
+    | sort: sortService.currentField : sortService.currentOrder 
+    | filter : filterService.filterValue; trackBy: trackByTag" 
+    [videoItem]="videoItem"></app-search-item>
+</div>
+<div *ngIf="totalPages > 1" class="pagination">
+    <app-custom-button 
+        *ngIf="totalPages > 0 && currentPage > 1" 
+        (click)="changePage(currentPage - 1)" 
+        size="prev" 
+        type="button"
+    >
+        Previous
+    </app-custom-button>
+    <span>Page {{ currentPage }}</span>
+    <app-custom-button 
+        *ngIf="currentPage < totalPages" 
+        (click)="changePage(currentPage + 1)"
+        size="prev"
+        type="button" 
+    >
+        Next
+    </app-custom-button>
+</div>

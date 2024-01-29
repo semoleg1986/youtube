@@ -1,0 +1,34 @@
+<header class="header">
+    <mat-toolbar [ngClass]="'custom-toolbar'">
+        <div class="nav-search">
+            <app-icon></app-icon>
+            <input 
+                matInput 
+                placeholder="What are you want to find out?" 
+                [ngClass]="'custom-input'"  
+                [(ngModel)]="searchText" 
+                (ngModelChange)="onSearchInputChange($event)">
+            <div class="custom-setting" *ngIf="showHeader" (click)="toggleSettingsMenu()" tabindex="0" (keydown)="handleKeyboardEvent($event)">
+                <mat-icon>tune</mat-icon>
+            </div>
+            <app-custom-button
+                [routerLink]="'favs'"
+                [ngClass]="'favs'" 
+                size="favs" 
+                type="button"
+                >
+                <mat-icon>favorite</mat-icon>
+            </app-custom-button>
+        </div>
+        <div class="user-name">
+            {{ currentName }}
+        </div>
+        <div class="nav-icon" [routerLink]="'admin'">
+            <img src="assets/profile.svg" alt="youtube-client-icon">
+        </div>
+        <app-custom-button size="small" *ngIf="!logged" (click)="toggleLogin()">Login</app-custom-button>
+        <app-custom-button size="small" *ngIf="logged" (click)="toggleLogin()">Logout</app-custom-button>
+    </mat-toolbar>
+    <app-filter-block *ngIf="showSettingsMenu">
+    </app-filter-block>    
+</header>

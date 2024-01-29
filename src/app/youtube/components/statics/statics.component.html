@@ -1,0 +1,18 @@
+<ul [ngClass]="'statistic'">
+    <li>
+        <img src="assets/statistic/viewed.svg" alt="viewed">
+        <span>{{ item.statistics?.viewCount }}</span>
+    </li>
+    <li>
+        <img src="assets/statistic/liked.svg" alt="viewed">
+        <span>{{ item.statistics?.likeCount }}</span>
+    </li>
+    <li>
+        <img src="assets/statistic/dislike.svg" alt="viewed">
+        <span>{{ item.statistics?.likeCount }}</span>
+    </li>
+    <li>
+        <img src="assets/statistic/copy.svg" alt="viewed">
+        <span>{{ item.statistics?.commentCount }}</span>
+    </li>
+</ul>

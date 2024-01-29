@@ -1,0 +1,11 @@
+<mat-toolbar [ngClass]="'filter__container'">
+    <span>Sorting by:</span>
+    <div class="menu">
+        <p (click)="sortService.updateSortByDate($event)" (keydown)="handleKeyboardEvent($event)" tabindex="0">date</p>
+        <p (click)="sortService.updateSortByViews($event)" (keydown)="handleKeyboardEvent($event)" tabindex="0">count of views</p>        
+        <div class="tag">
+            <p>by word or sentence</p>
+            <input matInput [ngClass]="'tag-input'" [(ngModel)]="filterService.filterValue" name="filterValue" type="search">
+        </div>
+    </div>
+</mat-toolbar>

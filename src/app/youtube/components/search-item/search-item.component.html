@@ -1,0 +1,33 @@
+<ng-container *ngIf="videoItem">
+    <mat-card [appBorderColor]="videoItem.snippet.publishedAt">
+        <img 
+            class="card-img"
+            [src]="videoItem.snippet.thumbnails.medium.url"
+            [alt]="videoItem.snippet.title" 
+            mat-card-image
+        >
+        <div class="card-body">
+            <app-statics [item]="videoItem"></app-statics>
+            <mat-card-content [ngClass]="'card-title'">{{ videoItem.snippet.title}}</mat-card-content>
+        </div>
+        <app-custom-button (click)="detailPageById(videoItem.id)" [ngClass]="'card-button'">more...</app-custom-button>
+        <app-custom-button
+            *ngIf="videoItem.custom"
+            [ngClass]="'card-control'" 
+            size="control" 
+            type="button"
+            (click)="deleteCards(videoItem.id)"
+            >
+            <mat-icon>close</mat-icon>
+        </app-custom-button>
+        <app-custom-button
+            *ngIf="!videoItem.custom"
+            [ngClass]="'card-control'" 
+            size="control" 
+            type="button"
+            (click)="toggleFavorites(videoItem)"
+            >
+            <mat-icon>{{ videoItem.favorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+        </app-custom-button>
+    </mat-card>
+</ng-container>
